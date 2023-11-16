@@ -10,11 +10,13 @@ namespace ModelFirst.Configurations
         public void Configure(EntityTypeBuilder<Student> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Name);
+            builder.Property(x => x.Name).HasMaxLength(30);
+  
 
-            builder.HasOne<Teacher>(s => s.Teacher)
+            builder.HasOne(s => s.Teacher)
             .WithMany(g => g.TeacherStudents)
-            .HasForeignKey(s => s.TeacherId);
+            .HasForeignKey(s => s.TeacherId)
+            .OnDelete(DeleteBehavior.Cascade);
             
             builder.HasMany<Grade>(s => s.Grades)
             .WithMany(g => g.Students);
