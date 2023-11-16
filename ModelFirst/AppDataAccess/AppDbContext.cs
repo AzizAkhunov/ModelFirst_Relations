@@ -12,5 +12,6 @@ namespace ModelFirst.AppDataAccess
         public DbSet<TeacherStudent> TeacherStudents { get; set; }
         public DbSet<Father> Fathers { get; set; }
         public DbSet<Child> Children { get; set; }
+        public DbSet<Grade> Grades { get; set; }
     }
 }
