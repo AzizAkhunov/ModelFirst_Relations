@@ -18,6 +18,7 @@ namespace ModelFirst.AppDataAccess
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new StudentTypeConfigure());
+            modelBuilder.ApplyConfiguration(new ChildrenConfiguration());
         }
     }
 }
